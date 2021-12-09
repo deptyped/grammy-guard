@@ -1,3 +1,5 @@
+<div align="justify">
+
 # The Hitchhiker's Guide to grammY Plugins
 grammY is very extensible and it supports installing plugins, but how does one go about doing it? In this article, we will cover all the steps of developing a plugin for grammY bot framework.
 
@@ -195,3 +197,5 @@ Well, you're missing out! but you may also write your plugins in node. In such a
 
 # How to Submit?
 If you have a plugin ready, you may simply submit a pull request on GitHub (according to the [Rules of Contribution](#rules-of-contribution)) or notify us in the [community chat](https://t.me/grammyjs) for further help.
+
+</div>
