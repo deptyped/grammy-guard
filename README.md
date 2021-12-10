@@ -31,7 +31,7 @@ A [middleware](https://grammy.dev/guide/middleware.html) is a function that hand
 A [transformer](https://grammy.dev/advanced/transformers.html#installing-a-transformer-function) is exactly the opposite of a middleware! It is a function that handles outgoing data. Transformer plugins are plugins that are fed to a bot as a - crazy! guessed it again - transformer. Similarly, this type of plugin returns a transformer function.
 
 # Rules of Contribution
-Before diving into some hands-on examples, there are some notes to pay attention to it you would like your plugins to be submitted to the documentation:
+Before diving into some hands-on examples, there are some notes to pay attention to if you would like your plugins to be submitted to the documentation:
 
 1. You should document your plugin (README with instructions).
 2. Explain the purpose of your plugin and how to use it by adding a page to the [docs](https://github.com/grammyjs/website).
@@ -99,65 +99,65 @@ bot.start();
 Voilà! You got yourself a plugin, right? not so fast. We still need to package it up, but before that let's take a look at transformer plugins as well.
 
 # Designing a Dummy Transformer Plugin
-Imagine writing a plugin that retries failed requests automatically. Pretty cool, right?
+Imagine writing a plugin that sends the appropriate [chat action](https://core.telegram.org/bots/api#sendchataction) automatically whenever the bot sends a document. Pretty cool, right?
 
 ```ts
-// A function to pause before retrying
-function pause(seconds: number) {
-    return new Promise(resolve => setTimeout(resolve, 1000 * seconds))
-}
+// defining a return type for our main plugin function
+type GenericTransformer = (...args: any[]) => any
 
-type AutoRetryTransformer = (...args: any[]) => any
+// main plugin function
+export const autoChatAction = (): GenericTransformer => {
 
-export interface AutoRetryOptions {
-    maxDelaySeconds: number
-    maxRetryAttempts: number
-}
+    // The actual transformer returned
+    return async (prev, method, payload, signal) => {
+        // save a pointer to an interval so we can clear it later on
+        let handle: ReturnType<typeof setTimeout> | undefined
 
-// the main plugin function
-export function autoRetry(options?: AutoRetryOptions): AutoRetryTransformer {
+        // define an interval so we keep sending the chat action while the file is being uploaded by the bot
+        if (method === 'sendDocument') handle ??= setInterval(() => prev("sendChatAction", { chat_id: payload.chat_id, action: "upload_document" }), 1000)
 
-    // setting the timings or using the default options
-    const maxDelay = options?.maxDelaySeconds ?? 3600
-    const maxRetries = options?.maxRetryAttempts ?? 3
+        try {
+            // run the actual method from the bot
+            return await prev(method, payload, signal)
 
-    // the actual transformer
-    return async (prev, method, payload) => {
+        } catch (error) {
+            // You may choose to throw the error or do something else with it
+            console.log(error);
 
-        let remainingAttempts = maxRetries
-        let result = await prev(method, payload)
-
-        // as long as we don't have a result and
-        // we have not exceeded the retry limit, we keep retrying
-        while (
-            !result.ok &&
-            typeof result.parameters?.retry_after === 'number' &&
-            result.parameters.retry_after <= maxDelay &&
-            remainingAttempts-- > 0
-        ) {
-            await pause(result.parameters.retry_after)
-            result = await prev(method, payload)
+        } finally {
+            // clear the interval so we stop sending the chat action to the client
+            clearInterval(handle)
         }
 
-        // return the result eventually
-        return result
     }
 }
 ```
 
-and we can use it:
+Now we can use it in a real bot:
 
 ```ts
-import { autoRetry } from './testing.ts'
-import { Bot } from './deps.deno.ts'
+import { Bot, InputFile } from "./deps.deno.ts";
+// I have my plugin code in a file called plugin.ts
+import { autoChatAction } from "./plugin.ts";
 
+// create a bot instance
 const bot = new Bot("YOUR BOT TOKEN HERE");
 
-bot.api.config.use(autoRetry())
+// use the plugin
+bot.api.config.use(autoChatAction());
 
+
+bot.on("message", ctx => {
+    // If user send this command, we will send him a pdf file (for demonstration purposes)
+    if (ctx.message.text === "send me a document") {
+        ctx.replyWithDocument(new InputFile("/tmp/document.pdf"))
+    }
+})
+
+// start the bot
 bot.start();
 ```
-This is an official plugin of grammY called [auto-retry](https://grammy.dev/plugins/auto-retry.html#plugin-summary)
+Now everytime we send a document, the chat action of `upload_document` will be sent to our client. Note that this was for demonstration purposes. Telegram recommedns using chat actions only when "a response from the bot will take a **noticeable** amount of time to arrive".
 
 # Exctraction Into a Plugin
 Whichever type of plugin you made, you have to bundle it in a standalone package. This is a fairly simple task. There are no specific rules on how to do this and npm is your oyster, but just to keep things organized we have a template suggestion for you. You can download the code from this repository and start developing your plugin without any time spent on configuration.
