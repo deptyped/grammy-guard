@@ -114,15 +114,17 @@ export const autoChatAction = (): GenericTransformer => {
         let handle: ReturnType<typeof setTimeout> | undefined
 
         // define an interval so we keep sending the chat action while the file is being uploaded by the bot
-        if (method === 'sendDocument') handle ??= setInterval(() => prev("sendChatAction", { chat_id: payload.chat_id, action: "upload_document" }), 1000)
+        if (method === 'sendDocument') handle ??= setInterval(() => {
+            prev("sendChatAction", { chat_id: payload.chat_id, action: "upload_document" })
+                .catch((error: any) => {
+                    console.log(error);
+                })
+        }
+            , 500)
 
         try {
             // run the actual method from the bot
             return await prev(method, payload, signal)
-
-        } catch (error) {
-            // You may choose to throw the error or do something else with it
-            console.log(error);
 
         } finally {
             // clear the interval so we stop sending the chat action to the client
