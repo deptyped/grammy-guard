@@ -1,1 +1,2 @@
-export { Bot, Context, NextFunction, MiddlewareFn } from "grammy";
+export { Bot, Context } from "grammy";
+export type { NextFunction, MiddlewareFn } from "grammy";
