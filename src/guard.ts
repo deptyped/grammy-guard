@@ -1,5 +1,5 @@
-import { Context, NextFunction, MiddlewareFn } from "grammy";
-import { Predicate } from "./types";
+import { Context, NextFunction, MiddlewareFn } from "./deps.deno.ts";
+import { Predicate } from "./types.ts";
 
 export const guard =
   <C extends Context>(
