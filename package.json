@@ -1,0 +1,41 @@
+{
+  "name": "grammy-guard",
+  "version": "0.1.0",
+  "description": "Guard middlewares for grammY",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bot-base/grammy-guard.git"
+  },
+  "author": "deptyped <deptyped@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bot-base/grammy-guard/issues"
+  },
+  "homepage": "https://github.com/bot-base/grammy-guard#readme",
+  "peerDependencies": {
+    "grammy": "^1.0.0"
+  },
+  "keywords": [
+    "guard",
+    "middleware",
+    "grammy",
+    "bot",
+    "telegram",
+    "telegram-bot",
+    "telegram-bot-api"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist"
+  ]
+}
