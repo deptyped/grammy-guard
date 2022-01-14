@@ -2,7 +2,7 @@
     "name": "grammy-guard",
     "version": "0.1.0",
     "description": "Guard middlewares for grammY",
-    "main": "dist/index.js",
+    "main": "dist/mod.js",
     "scripts": {
         "build": "deno2node tsconfig.json",
         "lint": "deno lint --config deno.json",
