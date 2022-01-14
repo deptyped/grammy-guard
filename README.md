@@ -50,18 +50,19 @@ There's some more [examples](https://github.com/bot-base/grammy-guard/tree/main/
 
 ## Reference
 
-| Filter                 | Description                                                                                                                                                             |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `isPrivate`            | Checks if it is a private chat                                                                                                                                          |
-| `isBasicGroup`         | Checks if it is a basic group chat                                                                                                                                      |
-| `isSupergroup`         | Checks if it is a supergroup chat                                                                                                                                       |
-| `isGroup`              | Checks if it is a basic group or a supergroup chat                                                                                                                      |
-| `isChannel`            | Checks if it is a channel                                                                                                                                               |
-| `isUser`               | Checks if the user is not a bot                                                                                                                                         |
-| `isBot`                | Checks if the user is a bot                                                                                                                                             |
-| `isUserId(id: number)` | Checks if the user has this ID                                                                                                                                          |
-| `isChatId(id: number)` | Checks if the chat has this ID                                                                                                                                          |
-| `isUserFromReply`      | Checks if the user is the same user who sent the message to which the bot replied. It is useful that only the user who called up the menu can use the callback buttons. |
-| `isAdmin`              | Checks if the user is an admin                                                                                                                                          |
+| Filter                       | Description                                                                                                                                                             |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isPrivate`                  | Checks if it is a private chat                                                                                                                                          |
+| `isBasicGroup`               | Checks if it is a basic group chat                                                                                                                                      |
+| `isSupergroup`               | Checks if it is a supergroup chat                                                                                                                                       |
+| `isGroup`                    | Checks if it is a basic group or a supergroup chat                                                                                                                      |
+| `isChannel`                  | Checks if it is a channel                                                                                                                                               |
+| `isUser`                     | Checks if the user is not a bot                                                                                                                                         |
+| `isBot`                      | Checks if the user is a bot                                                                                                                                             |
+| `isUserId(id: number)`       | Checks if the user has this ID                                                                                                                                          |
+| `isChatId(id: number)`       | Checks if the chat has this ID                                                                                                                                          |
+| `isSenderChatId(id: number)` | Checks if the sender chat has this ID                                                                                                                                   |
+| `isUserFromReply`            | Checks if the user is the same user who sent the message to which the bot replied. It is useful that only the user who called up the menu can use the callback buttons. |
+| `isAdmin`                    | Checks if the user is an admin                                                                                                                                          |
 
 Feel free to contribute!

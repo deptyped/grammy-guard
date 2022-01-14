@@ -18,6 +18,9 @@ export const isUserId = (id: number) => (ctx: Context) => ctx.from?.id === id;
 
 export const isChatId = (id: number) => (ctx: Context) => ctx.chat?.id === id;
 
+export const isSenderChatId = (id: number) =>
+    (ctx: Context) => ctx.msg?.sender_chat?.id === id;
+
 export const isUserFromReply = (ctx: Context) =>
     ctx.msg?.from?.id === ctx.msg?.reply_to_message?.from?.id;
 
