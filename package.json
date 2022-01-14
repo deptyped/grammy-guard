@@ -1,40 +1,40 @@
 {
-  "name": "grammy-guard",
-  "version": "0.1.0",
-  "description": "Guard middlewares for grammY",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "deno2node tsconfig.json",
-    "lint": "deno lint --config deno.json",
-    "fmt": "deno fmt --config deno.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bot-base/grammy-guard.git"
-  },
-  "author": "deptyped <deptyped@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bot-base/grammy-guard/issues"
-  },
-  "homepage": "https://github.com/bot-base/grammy-guard#readme",
-  "peerDependencies": {
-    "grammy": "^1.0.0"
-  },
-  "keywords": [
-    "guard",
-    "middleware",
-    "grammy",
-    "bot",
-    "telegram",
-    "telegram-bot",
-    "telegram-bot-api"
-  ],
-  "devDependencies": {
-    "@types/node": "17.0.8",
-    "deno2node": "1.1.0"
-  },
-  "files": [
-    "dist"
-  ]
+    "name": "grammy-guard",
+    "version": "0.1.0",
+    "description": "Guard middlewares for grammY",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "deno2node tsconfig.json",
+        "lint": "deno lint --config deno.json",
+        "fmt": "deno fmt --config deno.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bot-base/grammy-guard.git"
+    },
+    "author": "deptyped <deptyped@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bot-base/grammy-guard/issues"
+    },
+    "homepage": "https://github.com/bot-base/grammy-guard#readme",
+    "peerDependencies": {
+        "grammy": "^1.0.0"
+    },
+    "keywords": [
+        "guard",
+        "middleware",
+        "grammy",
+        "bot",
+        "telegram",
+        "telegram-bot",
+        "telegram-bot-api"
+    ],
+    "devDependencies": {
+        "@types/node": "17.0.8",
+        "deno2node": "1.1.0"
+    },
+    "files": [
+        "dist"
+    ]
 }

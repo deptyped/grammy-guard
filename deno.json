@@ -1,16 +1,16 @@
 {
-  "fmt": {
-    "options": {
-      "indentWidth": 4,
-      "proseWrap": "preserve"
+    "fmt": {
+        "options": {
+            "indentWidth": 4,
+            "proseWrap": "preserve"
+        },
+        "files": {
+            "exclude": ["./node_modules/", "./dist/", "./package-lock.json"]
+        }
     },
-    "files": {
-      "exclude": ["./node_modules/", "./dist/", "./package-lock.json"]
+    "lint": {
+        "files": {
+            "exclude": ["./node_modules/", "./dist/", "./package-lock.json"]
+        }
     }
-  },
-  "lint": {
-    "files": {
-      "exclude": ["./node_modules/", "./dist/", "./package-lock.json"]
-    }
-  }
 }
