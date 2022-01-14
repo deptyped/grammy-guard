@@ -6,6 +6,8 @@ A library that simplifies the creation of guard middlewares and contains a set o
 
 ## Installation
 
+### Node
+
 ```sh
 npm install grammy-guard
 ```
@@ -14,6 +16,12 @@ or using `yarn`:
 
 ```sh
 yarn add grammy-guard
+```
+
+### Deno
+
+```ts
+import { guard } from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
 ```
 
 ## Example
@@ -44,9 +52,9 @@ bot.start();
 
 There's some more [examples](https://github.com/bot-base/grammy-guard/tree/main/examples):
 
-- [Using context in reply](https://github.com/bot-base/grammy-guard/blob/main/examples/2-reply-context.ts)
-- [Custom guard handler](https://github.com/bot-base/grammy-guard/blob/main/examples/3-custom-handler.ts)
-- [Custom guard predicate](https://github.com/bot-base/grammy-guard/blob/main/examples/4-custom-predicate.ts)
+- [Using context in reply](https://github.com/bot-base/grammy-guard/blob/main/examples/2-reply-context.ts) ([deno version](https://github.com/bot-base/grammy-guard/blob/main/examples/2-reply-context.deno.ts))
+- [Custom guard handler](https://github.com/bot-base/grammy-guard/blob/main/examples/3-custom-handler.ts) ([deno version](https://github.com/bot-base/grammy-guard/blob/main/examples/3-custom-handler.deno.ts))
+- [Custom guard predicate](https://github.com/bot-base/grammy-guard/blob/main/examples/4-custom-predicate.ts) ([deno version](https://github.com/bot-base/grammy-guard/blob/main/examples/4-custom-predicate.deno.ts))
 
 ## Reference
 
