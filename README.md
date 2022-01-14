@@ -6,6 +6,8 @@ A library that simplifies the creation of guard middlewares and contains a set o
 
 ## Installation
 
+### Node 
+
 ```sh
 npm install grammy-guard
 ```
@@ -14,6 +16,12 @@ or using `yarn`:
 
 ```sh
 yarn add grammy-guard
+```
+
+### Deno
+
+```ts
+import { guard } from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
 ```
 
 ## Example
