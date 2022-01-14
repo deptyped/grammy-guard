@@ -60,6 +60,7 @@ There's some more [examples](https://github.com/bot-base/grammy-guard/tree/main/
 | `isUser`               | Checks if the user is not a bot                                                                                                                                         |
 | `isBot`                | Checks if the user is a bot                                                                                                                                             |
 | `isUserId(id: number)` | Checks if the user has this ID                                                                                                                                          |
+| `isChatId(id: number)` | Checks if the chat has this ID                                                                                                                                          |
 | `isUserFromReply`      | Checks if the user is the same user who sent the message to which the bot replied. It is useful that only the user who called up the menu can use the callback buttons. |
 | `isAdmin`              | Checks if the user is an admin                                                                                                                                          |
 

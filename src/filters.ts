@@ -16,6 +16,8 @@ export const isBot = (ctx: Context) => ctx.from?.is_bot === true;
 
 export const isUserId = (id: number) => (ctx: Context) => ctx.from?.id === id;
 
+export const isChatId = (id: number) => (ctx: Context) => ctx.chat?.id === id;
+
 export const isUserFromReply = (ctx: Context) =>
     ctx.msg?.from?.id === ctx.msg?.reply_to_message?.from?.id;
 
