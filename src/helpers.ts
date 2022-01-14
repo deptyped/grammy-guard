@@ -1,5 +1,5 @@
-import { Context } from "grammy";
-import { MaybePromise, Predicate } from "./types";
+import { Context } from "./deps.deno.ts";
+import { MaybePromise, Predicate } from "./types.ts";
 
 export const not =
   <C extends Context>(predicate: Predicate<C>) =>

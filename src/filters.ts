@@ -1,4 +1,4 @@
-import { Context } from "grammy";
+import { Context } from "./deps.deno.ts";
 
 export const isPrivate = (ctx: Context) => ctx.chat?.type === "private";
 
