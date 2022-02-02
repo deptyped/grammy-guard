@@ -7,9 +7,7 @@ export const not = <C extends Context>(predicate: Predicate<C>) =>
 export const reply = <C extends Context>(
     errorMessage: string | ((ctx: C) => MaybePromise<string>),
 ) => async (ctx: C) => {
-    const text = typeof errorMessage === "function"
-        ? await errorMessage(ctx)
-        : errorMessage;
+    const text = typeof errorMessage === "function" ? await errorMessage(ctx) : errorMessage;
 
     if (ctx.callbackQuery) {
         return await ctx.answerCallbackQuery({
