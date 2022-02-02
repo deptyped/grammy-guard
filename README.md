@@ -21,7 +21,7 @@ yarn add grammy-guard
 ### Deno
 
 ```ts
-import { guard } from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
+import { guard } from "https://deno.land/x/grammy_guard@v0.3.0/mod.ts";
 ```
 
 ## Example
