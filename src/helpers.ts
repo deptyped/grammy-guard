@@ -4,6 +4,18 @@ import { MaybePromise, Predicate } from "./types.ts";
 export const not = <C extends Context>(predicate: Predicate<C>) =>
     (ctx: C) => Promise.resolve(predicate(ctx)).then((v) => !v);
 
+export const and = <C extends Context>(...predicate: Array<Predicate<C>>) =>
+    (ctx: C) =>
+        Promise.resolve(predicate.map((predicate) => predicate(ctx))).then(
+            (v) => v.every(Boolean),
+        );
+
+export const or = <C extends Context>(...predicate: Array<Predicate<C>>) =>
+    (ctx: C) =>
+        Promise.resolve(predicate.map((predicate) => predicate(ctx))).then(
+            (v) => v.some(Boolean),
+        );
+
 export const reply = <C extends Context>(
     errorMessage: string | ((ctx: C) => MaybePromise<string>),
 ) => async (ctx: C) => {

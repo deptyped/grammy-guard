@@ -28,23 +28,41 @@ import { guard } from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
 
 ```ts
 import { Bot } from "grammy";
-import { guard, reply, not, isAdmin, isPrivate } from "grammy-guard";
+import {
+    guard,
+    isAdmin,
+    isPrivate,
+    isUserHasId,
+    isUserHasUsername,
+    not,
+    or,
+    reply,
+} from "grammy-guard";
 
 const bot = new Bot(process.env.BOT_TOKEN as string);
 
 bot.command(
-  "private",
-  guard(isPrivate, reply("/private is only available in private chats!")),
-  (ctx) => ctx.reply("Hello in private!");
+    "start",
+    guard(isPrivate, reply("/start is only available in private chats!")),
+    (ctx) => ctx.reply("Hello!"),
 );
 
 bot.command(
-  "admin",
-  guard(
-    [not(isPrivate), isAdmin],
-    reply("/admin is only available to administrators in non-private chats!")
-  ),
-  (ctx) => ctx.reply("Hello, chat admin!");
+    "specificusers",
+    guard(
+        or(isUserHasId(1), isUserHasUsername("someusername")),
+        reply("/specificusers is only available to the user with ID 1 or username @someusername!"),
+    ),
+    (ctx) => ctx.reply("Hello, user!"),
+);
+
+bot.command(
+    "admin",
+    guard(
+        [not(isPrivate), isAdmin],
+        reply("/admin is only available to administrators in non-private chats!"),
+    ),
+    (ctx) => ctx.reply("Hello, admin!"),
 );
 
 bot.start();
