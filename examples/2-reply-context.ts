@@ -9,9 +9,7 @@ bot.command(
     guard(
         isPrivate,
         reply(
-            (ctx) =>
-                `${ctx.from
-                    ?.first_name}, /private is only available in private chats!`,
+            (ctx) => `${ctx.from?.first_name}, /private is only available in private chats!`,
         ),
     ),
     (ctx) => ctx.reply("Hello in private!"),

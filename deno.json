@@ -2,7 +2,8 @@
     "fmt": {
         "options": {
             "indentWidth": 4,
-            "proseWrap": "preserve"
+            "proseWrap": "preserve",
+            "lineWidth": 100
         },
         "files": {
             "exclude": ["./node_modules/", "./dist/", "./package-lock.json"]

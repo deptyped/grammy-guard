@@ -1,8 +1,5 @@
 import { Bot } from "https://deno.land/x/grammy@v1.6.1/mod.ts";
-import {
-    guard,
-    isPrivate,
-} from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
+import { guard, isPrivate } from "https://deno.land/x/grammy_guard@v0.2.0/mod.ts";
 
 // Create a bot.
 const bot = new Bot(Deno.env.get("BOT_TOKEN") as string);
