@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 import { Context } from "./deps.deno.ts";
 
 const normalizeUsername = (v: string) => v.trim().toLowerCase();
