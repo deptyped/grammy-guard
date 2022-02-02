@@ -1,6 +1,6 @@
 {
     "name": "grammy-guard",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Guard middlewares for grammY",
     "main": "dist/index.js",
     "scripts": {
