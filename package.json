@@ -1,7 +1,7 @@
 {
-    "name": "grammy-guard",
+    "name": "@grammyjs/util",
     "version": "0.3.1",
-    "description": "Guard middlewares for grammY",
+    "description": "Utils for grammY",
     "main": "dist/index.js",
     "scripts": {
         "build": "deno2node tsconfig.json",
@@ -31,8 +31,9 @@
         "telegram-bot-api"
     ],
     "devDependencies": {
-        "@types/node": "17.0.14",
-        "deno2node": "1.4.0"
+        "@types/node": "18.0.4",
+        "deno2node": "1.4.0",
+        "type-fest": "^2.16.0"
     },
     "files": [
         "dist"

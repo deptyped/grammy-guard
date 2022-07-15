@@ -1,4 +1,4 @@
-import { Context, MiddlewareFn, NextFunction } from "./deps.deno.ts";
+import { Context, MiddlewareFn, NextFunction } from "../deps.deno.ts";
 import { Predicate } from "./types.ts";
 
 export const guard = <C extends Context>(

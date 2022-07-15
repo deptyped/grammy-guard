@@ -1,4 +1,4 @@
-import { Context } from "./deps.deno.ts";
+import { Context } from "../deps.deno.ts";
 import { MaybePromise, Predicate } from "./types.ts";
 
 export const not = <C extends Context>(predicate: Predicate<C>) =>

@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
 
-import { Context } from "./deps.deno.ts";
+import { Context } from "../deps.deno.ts";
 
 const normalizeUsername = (v: string) => v.trim().toLowerCase();
 
@@ -62,9 +62,7 @@ export const isBotHasId = (...id: number[]) =>
 
 export const isBotHasUsername = (...username: string[]) => {
     username = username.map(normalizeUsername);
-    return (ctx: Context) =>
-        isBot(ctx) &&
-        username.includes(getPeerUsername(ctx.from));
+    return (ctx: Context) => isBot(ctx) && username.includes(getPeerUsername(ctx.from));
 };
 
 // Sender chat
@@ -102,12 +100,3 @@ export const isAdmin = async (ctx: Context) => {
 
     return false;
 };
-
-// Deprecated. For backward compatibility
-// TODO: Remove in 1.0
-
-export const isUserId = isUserHasId;
-
-export const isChatId = isChatHasId;
-
-export const isSenderChatId = isSenderChatHasId;
