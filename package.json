@@ -1,0 +1,38 @@
+{
+    "name": "@bot-base/grammy-plugin-template",
+    "version": "0.1.0",
+    "description": "A plugin template for grammY",
+    "homepage": "https://github.com/bot-base/grammy-plugin-template#readme",
+    "files": [
+        "dist/"
+    ],
+    "main": "./dist/mod.js",
+    "types": "./dist/mod.d.ts",
+    "scripts": {
+        "build": "deno2node tsconfig.json",
+        "lint": "deno lint --config deno.json",
+        "fmt": "deno fmt --config deno.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bot-base/grammy-plugin-template.git"
+    },
+    "author": "deptyped <deptyped@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bot-base/grammy-plugin-template/issues"
+    },
+    "peerDependencies": {
+        "grammy": "^1.0.0"
+    },
+    "devDependencies": {
+        "deno2node": "1.4.0"
+    },
+    "keywords": [
+        "grammy",
+        "bot",
+        "telegram",
+        "telegram-bot",
+        "telegram-bot-api"
+    ]
+}
