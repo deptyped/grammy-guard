@@ -1,8 +1,5 @@
-/**
- * Export your node-specific dependencies from here. Example:
- *
- * export * from "grammy";
- * export * from "@grammyjs/types";
- *
- *  That is if you use deno2node
- */
+export type { Chat, ChatMember, User } from "@grammyjs/types";
+export { Bot, Context } from "grammy";
+export type { ChatTypeContext, MiddlewareFn } from "grammy";
+export type { Object } from "ts-toolbelt";
+export type { DeepRequired } from "utility-types";

@@ -1,8 +1,13 @@
-/**
- * Export your deno-specific dependencies from here. Example:
- *
- * export * from "https://lib.deno.dev/x/grammy@1.x/mod.ts";
- * export * from "https://cdn.skypack.dev/@grammyjs/types@v2?dts";
- *
- *  That is if you use deno2node
- */
+export type { AliasProps } from "https://deno.land/x/grammy@v1.10.0/context.ts";
+export { Bot, Context } from "https://deno.land/x/grammy@v1.10.0/mod.ts";
+export type {
+  ChatTypeContext,
+  MiddlewareFn,
+} from "https://deno.land/x/grammy@v1.10.0/mod.ts";
+export type {
+  Chat,
+  ChatMember,
+  User,
+} from "https://esm.sh/@grammyjs/types@2.8.2";
+export type { Object } from "https://esm.sh/ts-toolbelt@9.6.0";
+export type { DeepRequired } from "https://esm.sh/utility-types@3.10.0";
