@@ -1,4 +1,4 @@
-import { Bot } from "https://deno.land/x/grammy@v1.10.0/mod.ts";
+import { Bot } from "https://deno.land/x/grammy@v1.14.1/mod.ts";
 import {
   guard,
   isAdmin,
