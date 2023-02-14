@@ -1,0 +1,21 @@
+{
+  "name": "grammy-guard",
+  "description": "Guard middlewares for grammY",
+  "homepage": "https://github.com/deptyped/grammy-guard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deptyped/grammy-guard.git"
+  },
+  "author": "deptyped <deptyped@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deptyped/grammy-guard/issues"
+  },
+  "keywords": [
+    "grammy",
+    "bot",
+    "telegram",
+    "telegram-bot",
+    "telegram-bot-api"
+  ]
+}
