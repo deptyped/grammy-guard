@@ -3,6 +3,7 @@ export {
   type CallbackQueryContext,
   type ChatTypeContext,
   type Context,
+  type Filter,
   type MiddlewareFn,
 } from "https://lib.deno.dev/x/grammy@1.x/mod.ts";
 

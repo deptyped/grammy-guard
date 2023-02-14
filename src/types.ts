@@ -2,10 +2,9 @@ import {
   Chat,
   ChatMember,
   ChatMemberUpdated,
-  ChatShared,
   Context,
+  Filter,
   User,
-  UserShared,
 } from "./deps.ts";
 
 export type MaybePromise<T> = T | Promise<T>;
@@ -64,30 +63,18 @@ export type ChatMemberContext<
 
 // ctx.msg.user_shared
 
-type UserSharedType = {
-  msg: {
-    user_shared: UserShared;
-  };
-  message: {
-    user_shared: UserShared;
-  };
-};
-
 export type UserSharedContext<
   C extends Context = Context,
-> = C & UserSharedType;
+> = Filter<
+  C,
+  ":user_shared"
+>;
 
 // ctx.msg.user_shared
 
-type ChatSharedType = {
-  msg: {
-    chat_shared: ChatShared;
-  };
-  message: {
-    chat_shared: ChatShared;
-  };
-};
-
 export type ChatSharedContext<
   C extends Context = Context,
-> = C & ChatSharedType;
+> = Filter<
+  C,
+  ":chat_shared"
+>;
