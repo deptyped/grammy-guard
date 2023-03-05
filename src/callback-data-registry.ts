@@ -45,6 +45,18 @@ class CallbackDataRegistry<T> {
     return this.registry.get(id.toString())!.pack(data);
   }
 
+  parse<I extends keyof T>(id: I, packedData: string): CallbackData<T[I]> {
+    if (!this.registry.has(id.toString())) {
+      throw new Error(
+        `Callback data with ID "${id.toString()}" does not exist`,
+      );
+    }
+
+    return this.registry.get(id.toString())!.unpack(packedData) as CallbackData<
+      T[I]
+    >;
+  }
+
   regex<I extends keyof T>(id: I, clause?: FilterClause<T[I]>) {
     if (!this.registry.has(id.toString())) {
       throw new Error(
